@@ -1,0 +1,26 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: purchase
+  datasource:
+    url: jdbc:mysql://10.80.151.108:3306/ticketsdb
+    #url: jdbc:mysql://10.80.148.154:3306/ticketsdb
+    #url: jdbc:mysql://localhost:3306/ticketsdb
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+resilience4j.circuitbreaker:
+    instances:    
+        purchaseCB:
+            registerHealthIndicator: true
+            slidingWindowSize: 10
+            permittedNumberOfCallsInHalfOpenState: 3
+            slidingWindowType: TIME_BASED
+            minimumNumberOfCalls: 4
+            waitDurationInOpenState: 5s
+            failureRateThreshold: 50
+            eventConsumerBufferSize: 10
