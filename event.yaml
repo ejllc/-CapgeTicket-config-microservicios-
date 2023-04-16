@@ -4,9 +4,9 @@ spring:
   application:
     name: event
   datasource:
-    url: jdbc:mysql://10.80.151.108:3306/eventsdb
+    #url: jdbc:mysql://10.80.151.108:3306/eventsdb
     #url: jdbc:mysql://10.80.148.154:3306/eventsdb
-    #url: jdbc:mysql://localhost:3306/eventsdb
+    url: jdbc:mysql://localhost:3306/eventsdb
     username: root
     password: root
   jpa:
